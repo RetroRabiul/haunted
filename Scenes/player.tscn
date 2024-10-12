@@ -1,0 +1,124 @@
+[gd_scene load_steps=22 format=3 uid="uid://cnydytf4b6xxm"]
+
+[ext_resource type="Texture2D" uid="uid://cdvpgdhtej7s" path="res://Assets/Player/Back/player1.png" id="1_7qgn0"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_v2wly"]
+[ext_resource type="Texture2D" uid="uid://dk7kxbfq1rw7l" path="res://Assets/Player/Back/player2.png" id="2_2jrw0"]
+[ext_resource type="Texture2D" uid="uid://c7x40mdevehq0" path="res://Assets/Player/Back/player3.png" id="3_64mqv"]
+[ext_resource type="Texture2D" uid="uid://c25c4p62i5l85" path="res://Assets/Player/Back/player4.png" id="4_xpmwh"]
+[ext_resource type="Texture2D" uid="uid://bblu6rf57vhmi" path="res://Assets/Player/Front/player-front1.png" id="5_kpebv"]
+[ext_resource type="Texture2D" uid="uid://dfm5y42c4ntaw" path="res://Assets/Player/Front/player-front2.png" id="6_yledt"]
+[ext_resource type="Texture2D" uid="uid://dbt6qdcd6ql2d" path="res://Assets/Player/Front/player-front3.png" id="7_vydpm"]
+[ext_resource type="Texture2D" uid="uid://uc5j6utrfa21" path="res://Assets/Player/Front/player-front4.png" id="8_1x63a"]
+[ext_resource type="Texture2D" uid="uid://c45he1ehaa1re" path="res://Assets/Player/Idle/player-idle1.png" id="9_pvlkc"]
+[ext_resource type="Texture2D" uid="uid://b67nm4jdl4sff" path="res://Assets/Player/Idle/player-idle2.png" id="10_7xyfd"]
+[ext_resource type="Texture2D" uid="uid://dwo1mxrs2ske1" path="res://Assets/Player/Idle/player-idle3.png" id="11_fd0j4"]
+[ext_resource type="Texture2D" uid="uid://cshc5v5nwdasu" path="res://Assets/Player/Idle/player-idle4.png" id="12_4qyom"]
+[ext_resource type="Texture2D" uid="uid://cwlmi4k1bpcd" path="res://Assets/Player/Walking/player_walking1.png" id="13_uneqj"]
+[ext_resource type="Texture2D" uid="uid://3uljm011y2ii" path="res://Assets/Player/Walking/player_walking2.png" id="14_ctwx4"]
+[ext_resource type="Texture2D" uid="uid://b5r3e67w3ukb4" path="res://Assets/Player/Walking/player_walking3.png" id="15_qgbka"]
+[ext_resource type="Texture2D" uid="uid://eeqaj8bgkhpw" path="res://Assets/Player/Walking/player_walking4.png" id="16_54x77"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ovedi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7qgn0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_2jrw0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_64mqv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xpmwh")
+}],
+"loop": true,
+"name": &"back",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_kpebv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_yledt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_vydpm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_1x63a")
+}],
+"loop": true,
+"name": &"front",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_pvlkc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_7xyfd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_fd0j4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_4qyom")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_uneqj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ctwx4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_qgbka")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_54x77")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_72anm"]
+radius = 9.0
+height = 52.0
+
+[sub_resource type="Gradient" id="Gradient_nii22"]
+offsets = PackedFloat32Array(0.678261, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_utqsb"]
+gradient = SubResource("Gradient_nii22")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.858896, 0.150307)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_v2wly")
+
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_ovedi")
+animation = &"walking"
+frame = 3
+frame_progress = 0.65121
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_72anm")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(3.59375, 3.59375)
+blend_mode = 2
+range_item_cull_mask = 3
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_utqsb")
