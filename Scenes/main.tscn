@@ -1,12 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://bwsggdywhxqen"]
+[gd_scene load_steps=8 format=3 uid="uid://bwsggdywhxqen"]
 
-[ext_resource type="Texture2D" uid="uid://cnmn6kakxfuyg" path="res://Assets/Tile.png" id="1_3cwrw"]
-[ext_resource type="Texture2D" uid="uid://dmfgryqqsc0y7" path="res://background.png" id="1_gm4xk"]
-[ext_resource type="Texture2D" uid="uid://deb3w6f3leqkn" path="res://Death.png" id="3_wyokn"]
-[ext_resource type="PackedScene" uid="uid://cnydytf4b6xxm" path="res://Scenes/player.tscn" id="21_g3ky0"]
+[ext_resource type="Texture2D" uid="uid://cnmn6kakxfuyg" path="res://Assets/Tile.png" id="1_1he5y"]
+[ext_resource type="Texture2D" uid="uid://dmfgryqqsc0y7" path="res://Assets/background.png" id="2_xkkr0"]
+[ext_resource type="PackedScene" uid="uid://cnydytf4b6xxm" path="res://Scenes/player.tscn" id="3_8skpl"]
+[ext_resource type="PackedScene" uid="uid://vnl56fwywfjs" path="res://Scenes/enemy.tscn" id="4_lnbp6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rk5bl"]
-texture = ExtResource("1_3cwrw")
+texture = ExtResource("1_1he5y")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -27,9 +27,6 @@ texture = ExtResource("1_3cwrw")
 [sub_resource type="TileSet" id="TileSet_snedf"]
 sources/0 = SubResource("TileSetAtlasSource_rk5bl")
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xcprr"]
-light_mode = 2
-
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_dbrg8"]
 polygon = PackedVector2Array(2, 284, 231, 284, 231, 321, 1, 321)
 
@@ -45,14 +42,7 @@ layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 1, 131072, 0, 2, 196608,
 position = Vector2(576.085, 324.171)
 rotation = -1.57079
 scale = Vector2(0.600395, 0.600301)
-texture = ExtResource("1_gm4xk")
-
-[node name="Enemy" type="Sprite2D" parent="."]
-light_mask = 2
-visibility_layer = 2
-material = SubResource("CanvasItemMaterial_xcprr")
-position = Vector2(184, 210)
-texture = ExtResource("3_wyokn")
+texture = ExtResource("2_xkkr0")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.17881, 0.17881, 0.17881, 1)
@@ -61,5 +51,9 @@ color = Color(0.17881, 0.17881, 0.17881, 1)
 modulate = Color(1, 1, 1, 0)
 occluder = SubResource("OccluderPolygon2D_dbrg8")
 
-[node name="Player" parent="." instance=ExtResource("21_g3ky0")]
+[node name="Player" parent="." instance=ExtResource("3_8skpl")]
 position = Vector2(290, 156)
+
+[node name="Enemy" parent="." instance=ExtResource("4_lnbp6")]
+position = Vector2(495, 210)
+scale = Vector2(3, 3)
