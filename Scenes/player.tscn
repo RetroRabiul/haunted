@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cnydytf4b6xxm"]
+[gd_scene load_steps=21 format=3 uid="uid://cnydytf4b6xxm"]
 
 [ext_resource type="Texture2D" uid="uid://cdvpgdhtej7s" path="res://Assets/Player/Back/player1.png" id="1_7qgn0"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_v2wly"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://3uljm011y2ii" path="res://Assets/Player/Walking/player_walking2.png" id="14_ctwx4"]
 [ext_resource type="Texture2D" uid="uid://b5r3e67w3ukb4" path="res://Assets/Player/Walking/player_walking3.png" id="15_qgbka"]
 [ext_resource type="Texture2D" uid="uid://eeqaj8bgkhpw" path="res://Assets/Player/Walking/player_walking4.png" id="16_54x77"]
+[ext_resource type="Texture2D" uid="uid://bwcfojbiyqvvt" path="res://Assets/light.png" id="18_118xn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ovedi"]
 animations = [{
@@ -93,17 +94,8 @@ animations = [{
 radius = 9.0
 height = 52.0
 
-[sub_resource type="Gradient" id="Gradient_nii22"]
-offsets = PackedFloat32Array(0.678261, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_utqsb"]
-gradient = SubResource("Gradient_nii22")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.858896, 0.150307)
-
 [node name="Player" type="CharacterBody2D"]
+scale = Vector2(1.5, 1.5)
 collision_layer = 3
 script = ExtResource("1_v2wly")
 
@@ -118,8 +110,12 @@ frame_progress = 0.65121
 shape = SubResource("CapsuleShape2D_72anm")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-scale = Vector2(3.59375, 3.59375)
 blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
-texture = SubResource("GradientTexture2D_utqsb")
+texture = ExtResource("18_118xn")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+limit_left = 0
+limit_top = 0
