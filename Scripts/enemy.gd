@@ -5,6 +5,9 @@ const speed = 50
 @export var player: Node2D
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
 
+func _ready() -> void:
+	$ZombieSprite.play("chasing")
+
 func _physics_process(delta: float) -> void:
 	var dir = to_local(nav_agent.get_next_path_position()).normalized()
 	velocity = dir * speed
