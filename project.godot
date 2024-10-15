@@ -15,6 +15,15 @@ run/main_scene="res://Scenes/main.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GlobalSignal="*res://Scripts/global_signal.gd"
+
+[global_group]
+
+player=""
+enemy=""
+
 [input]
 
 up={
@@ -41,6 +50,9 @@ right={
 [layer_names]
 
 2d_physics/layer_1="world"
+2d_physics/layer_2="player"
+2d_physics/layer_3="enemy"
+2d_physics/layer_4="pick_ups"
 
 [rendering]
 

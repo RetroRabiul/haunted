@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://ctai8ocvk248h"]
+
+[ext_resource type="Script" path="res://Scripts/torch.gd" id="1_ipnsa"]
+[ext_resource type="Texture2D" uid="uid://cr1vilthh28ty" path="res://Assets/torch.png" id="2_j5lmp"]
+[ext_resource type="Texture2D" uid="uid://bwcfojbiyqvvt" path="res://Assets/light.png" id="3_yo8aj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rw22w"]
+size = Vector2(20, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_is74j"]
+size = Vector2(21, 17)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_ipnsa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rw22w")
+
+[node name="Area2d" type="Area2D" parent="."]
+
+[node name="Torch" type="Sprite2D" parent="Area2d"]
+texture_filter = 1
+texture = ExtResource("2_j5lmp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2d"]
+shape = SubResource("RectangleShape2D_is74j")
+
+[node name="PointLight2D" type="PointLight2D" parent="Area2d"]
+blend_mode = 2
+range_item_cull_mask = 3
+shadow_enabled = true
+texture = ExtResource("3_yo8aj")
+
+[connection signal="body_entered" from="Area2d" to="." method="_on_area_2d_body_entered"]

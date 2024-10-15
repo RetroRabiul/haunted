@@ -2,7 +2,15 @@ extends CharacterBody2D
 
 @export var speed = 100
 var direction := Vector2.ZERO
-	
+
+func _ready() -> void:
+	$PointLight2D.visible = false
+	GlobalSignal.torch_collected.connect(_torch_collected)
+
+func _torch_collected() -> void:
+	$PointLight2D.visible = true
+
+
 func _process(delta: float) -> void:
 	#direction = Input.get_vector("left", "right", "up", "down")
 	#print(global_position)
