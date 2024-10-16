@@ -159,7 +159,6 @@ visible = false
 navigation_polygon = SubResource("NavigationPolygon_pl5bf")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.0100903, 0.0100903, 0.0100903, 1)
 
 [node name="kitchen" type="StaticBody2D" parent="."]
 
@@ -272,7 +271,6 @@ player = NodePath("../Player")
 position = Vector2(151, 102)
 
 [node name="ZombieStartsFollowing" type="Area2D" parent="."]
-position = Vector2(0, -97)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZombieStartsFollowing"]
 position = Vector2(423, 304)
