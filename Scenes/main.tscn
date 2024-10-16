@@ -159,9 +159,6 @@ navigation_polygon = SubResource("NavigationPolygon_pl5bf")
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.0807833, 0.0807833, 0.0807833, 1)
 
-[node name="UI" parent="." instance=ExtResource("13_0o5c3")]
-z_index = 10
-
 [node name="kitchen" type="StaticBody2D" parent="."]
 
 [node name="Besin" type="Sprite2D" parent="kitchen"]
@@ -276,5 +273,9 @@ position = Vector2(151, 102)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZombieStartsFollowing"]
 position = Vector2(423, 304)
 shape = SubResource("RectangleShape2D_h8yt7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("13_0o5c3")]
 
 [connection signal="body_entered" from="ZombieStartsFollowing" to="." method="_on_zombie_starts_following_body_entered"]
