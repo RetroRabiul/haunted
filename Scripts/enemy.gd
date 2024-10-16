@@ -7,6 +7,14 @@ const speed = 50
 
 func _ready() -> void:
 	$ZombieSprite.play("chasing")
+	GlobalSignal.zombie_can_follow.connect(_zombie_can_follow)
+
+
+func _zombie_can_follow():
+	$Timer.start()
+
+
+
 
 func _physics_process(delta: float) -> void:
 	var dir = to_local(nav_agent.get_next_path_position()).normalized()
