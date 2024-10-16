@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bwsggdywhxqen"]
+[gd_scene load_steps=29 format=3 uid="uid://bwsggdywhxqen"]
 
 [ext_resource type="Texture2D" uid="uid://eixnv2pv16ut" path="res://Assets/floor.png" id="1_r1qq7"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_sqrbh"]
@@ -8,12 +8,14 @@
 [ext_resource type="Texture2D" uid="uid://cfw8tu2mt1am" path="res://Assets/sofa.png" id="5_1l0pw"]
 [ext_resource type="Texture2D" uid="uid://dg1vsiyswg617" path="res://Assets/bed2.png" id="5_lvimq"]
 [ext_resource type="Texture2D" uid="uid://d3sn2tkvprcs7" path="res://Assets/sofa2.png" id="6_ckhkd"]
+[ext_resource type="PackedScene" uid="uid://pgp872c1ss2g" path="res://Scenes/fuse_table.tscn" id="6_drkhb"]
 [ext_resource type="Texture2D" uid="uid://cty7nukjqhf5p" path="res://Assets/table.png" id="6_k67h0"]
 [ext_resource type="Texture2D" uid="uid://l5t7ctie6lfx" path="res://Assets/kitchen/shelve.png" id="9_oipbt"]
 [ext_resource type="Texture2D" uid="uid://nbrdypsih3th" path="res://Assets/besin.png" id="9_xfpdw"]
 [ext_resource type="Texture2D" uid="uid://b1044qmklowm1" path="res://Assets/kitchen/stove.png" id="10_0clt4"]
 [ext_resource type="PackedScene" uid="uid://ctai8ocvk248h" path="res://Scenes/torch.tscn" id="11_ltexq"]
 [ext_resource type="PackedScene" uid="uid://bx31j048qd1ex" path="res://Scenes/ui.tscn" id="13_0o5c3"]
+[ext_resource type="PackedScene" uid="uid://v13oj4kukvm6" path="res://Scenes/board.tscn" id="15_xlinw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x46y5"]
 texture = ExtResource("1_r1qq7")
@@ -97,9 +99,8 @@ shape = SubResource("RectangleShape2D_jcy08")
 position = Vector2(158, 63)
 texture = ExtResource("6_k67h0")
 
-[node name="Table2" type="Sprite2D" parent="."]
-position = Vector2(828, 47)
-texture = ExtResource("6_k67h0")
+[node name="Tableforfuse" parent="." instance=ExtResource("6_drkhb")]
+position = Vector2(826, 64)
 
 [node name="sofa" type="StaticBody2D" parent="."]
 position = Vector2(754, 513)
@@ -154,10 +155,11 @@ position = Vector2(0, 1)
 occluder = SubResource("OccluderPolygon2D_dbrg8")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_pl5bf")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.0807833, 0.0807833, 0.0807833, 1)
+color = Color(0.0100903, 0.0100903, 0.0100903, 1)
 
 [node name="kitchen" type="StaticBody2D" parent="."]
 
@@ -263,12 +265,14 @@ position = Vector2(157, 43)
 
 [node name="Enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_lnbp6")]
 position = Vector2(710, 91)
+speed = 30
 player = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("3_8skpl")]
 position = Vector2(151, 102)
 
 [node name="ZombieStartsFollowing" type="Area2D" parent="."]
+position = Vector2(0, -97)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZombieStartsFollowing"]
 position = Vector2(423, 304)
@@ -277,5 +281,10 @@ shape = SubResource("RectangleShape2D_h8yt7")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource("13_0o5c3")]
+
+[node name="board" parent="." instance=ExtResource("15_xlinw")]
+position = Vector2(967, 736)
+rotation = 1.5708
+scale = Vector2(0.315, 0.315)
 
 [connection signal="body_entered" from="ZombieStartsFollowing" to="." method="_on_zombie_starts_following_body_entered"]

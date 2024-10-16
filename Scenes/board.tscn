@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://v13oj4kukvm6"]
+
+[ext_resource type="Script" path="res://Scripts/board.gd" id="1_gk10e"]
+[ext_resource type="Texture2D" uid="uid://0kkh05tat62w" path="res://Assets/bored.png" id="1_um360"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r6uwe"]
+size = Vector2(90, 45)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_okwul"]
+size = Vector2(114, 86)
+
+[node name="board" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_gk10e")
+
+[node name="Bored" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_um360")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_r6uwe")
+
+[node name="BoardArea2d" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardArea2d"]
+shape = SubResource("RectangleShape2D_okwul")
+
+[connection signal="body_entered" from="BoardArea2d" to="." method="_on_board_area_2d_body_entered"]
