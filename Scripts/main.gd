@@ -3,8 +3,12 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	$CanvasModulate.visible = true
+	GlobalSignal.have_electricity.connect(_have_electricity)
 
+
+func _have_electricity():
+	$CanvasModulate.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
