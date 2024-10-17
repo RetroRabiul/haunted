@@ -42,7 +42,7 @@ script = ExtResource("1_dguvf")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_185qc")
 animation = &"chasing"
-frame_progress = 0.584403
+frame_progress = 0.948932
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_igkng")

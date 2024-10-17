@@ -2,12 +2,18 @@ extends Control
 
 @onready var controls_text = $controls
 @onready var search_text = $search
+@onready var key_text = $key
 
 func _ready() -> void:
+	%Key.hide()
 	controls_text.show()
-	search_text.hide()
 	GlobalSignal.torch_collected.connect(_hide_controls_label)
 	GlobalSignal.text.connect(_show_text)
+	GlobalSignal.key.connect(_got_key)
+
+func _got_key(text):
+	key_text.text = text
+	%Key.show()
 
 func _show_text(text):
 	search_text.text = text
@@ -16,8 +22,8 @@ func _show_text(text):
 
 func _hide_controls_label():
 	controls_text.hide()
-	call_deferred("_search_lext_label")
-
-func _search_lext_label():
-	search_text.show()
-	
+	search_text.text = "I'm thirsty, I need a glass of water."
+#
+#func _search_lext_label():
+	#search_text.show()
+	#

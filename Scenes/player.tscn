@@ -121,3 +121,5 @@ visibility_layer = 513
 zoom = Vector2(2, 2)
 limit_left = 0
 limit_top = 0
+limit_right = 1248
+limit_bottom = 1248

@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bx31j048qd1ex"]
+[gd_scene load_steps=5 format=3 uid="uid://bx31j048qd1ex"]
 
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="1_m54ei"]
+[ext_resource type="FontFile" uid="uid://cx5qbw7hfglc7" path="res://Assets/fonts/Comfortaa/static/Comfortaa-SemiBold.ttf" id="2_s2g3v"]
+[ext_resource type="FontFile" uid="uid://k0lb3q5pibgv" path="res://Assets/fonts/Comfortaa/static/Comfortaa-Bold.ttf" id="2_slu27"]
+[ext_resource type="Texture2D" uid="uid://d6wr1t6cwx3c" path="res://Assets/key.png" id="4_52bah"]
 
 [node name="UI" type="Control"]
 light_mask = 512
@@ -21,16 +24,16 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -211.0
+offset_left = -587.0
 offset_top = 87.0
-offset_right = -81.0
-offset_bottom = 205.0
+offset_right = -67.0
+offset_bottom = 324.0
 grow_horizontal = 0
+theme_override_fonts/font = ExtResource("2_slu27")
 theme_override_font_sizes/font_size = 50
 text = "Get the torch Using:
  W
- A         D
- S
+ A    S    D
 or Arrow Keys"
 horizontal_alignment = 1
 
@@ -49,6 +52,35 @@ offset_top = -104.0
 offset_right = 404.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_s2g3v")
 theme_override_font_sizes/font_size = 50
-text = "Search for the circuit Fuse box"
+text = "\"I need the torch to see\""
 horizontal_alignment = 1
+
+[node name="key" type="Label" parent="."]
+light_mask = 512
+visibility_layer = 512
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -404.0
+offset_top = -204.0
+offset_right = 404.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_s2g3v")
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+
+[node name="Key" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+modulate = Color(0.64856, 0.931424, 0.992355, 1)
+texture_filter = 1
+position = Vector2(1057, 33)
+scale = Vector2(5, 5)
+texture = ExtResource("4_52bah")

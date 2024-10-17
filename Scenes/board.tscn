@@ -11,7 +11,7 @@ size = Vector2(114, 86)
 
 [node name="board" type="StaticBody2D"]
 collision_layer = 8
-collision_mask = 2
+collision_mask = 3
 script = ExtResource("1_gk10e")
 
 [node name="Bored" type="Sprite2D" parent="."]
@@ -26,4 +26,7 @@ shape = SubResource("RectangleShape2D_r6uwe")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoardArea2d"]
 shape = SubResource("RectangleShape2D_okwul")
 
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="body_entered" from="BoardArea2d" to="." method="_on_board_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

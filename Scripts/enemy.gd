@@ -9,14 +9,18 @@ extends CharacterBody2D
 
 func _ready() -> void:
 	$ZombieSprite.hide()
-	$CollisionShape.hide()
+	$CollisionShape.disabled = true
 	GlobalSignal.zombie_can_follow.connect(_zombie_can_follow)
 
 
 func _zombie_can_follow():
 	$ZombieSprite.show()
-	$CollisionShape.show()
+	call_deferred("_show_collision")
 	$Timer.start()
+
+
+func _show_collision():
+	$CollisionShape.disabled = false
 
 
 func _physics_process(delta: float) -> void:
