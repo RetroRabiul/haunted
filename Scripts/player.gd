@@ -5,10 +5,14 @@ var direction := Vector2.ZERO
 
 func _ready() -> void:
 	$PointLight2D.visible = false
+	GlobalSignal.have_electricity.connect(_have_electricity)
 	GlobalSignal.torch_collected.connect(_torch_collected)
 
+func _have_electricity():
+	$PointLight2D.hide()
+
 func _torch_collected() -> void:
-	$PointLight2D.visible = true
+	$PointLight2D.show()
 
 
 func _process(delta: float) -> void:

@@ -1,11 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://b16bw8ohavvhx"]
+[gd_scene load_steps=8 format=3 uid="uid://b16bw8ohavvhx"]
 
 [ext_resource type="Script" path="res://Scripts/fruits.gd" id="1_o47le"]
 [ext_resource type="Texture2D" uid="uid://uoecnpsldbk0" path="res://Assets/fruit.png" id="1_vg26o"]
 [ext_resource type="Texture2D" uid="uid://q0mm4l2yegkv" path="res://Assets/apple.png" id="2_ykxf7"]
+[ext_resource type="Texture2D" uid="uid://cyxd6qic1fhob" path="res://Assets/icon.png" id="4_jrmxt"]
+[ext_resource type="Texture2D" uid="uid://do331hmcf558" path="res://Assets/icon4.png" id="5_yppqn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2ftsl"]
 radius = 27.0185
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0p3u2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_jrmxt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_yppqn")
+}],
+"loop": true,
+"name": &"icon",
+"speed": 2.0
+}]
 
 [node name="Area2D" type="Area2D"]
 collision_layer = 8
@@ -23,5 +39,12 @@ texture_filter = 1
 position = Vector2(1.19209e-07, -3)
 rotation = 0.483456
 texture = ExtResource("2_ykxf7")
+
+[node name="Icon" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -12)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_0p3u2")
+animation = &"icon"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

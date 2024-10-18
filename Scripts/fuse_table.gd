@@ -4,6 +4,7 @@ var time = 5
 
 func _ready() -> void:
 	$Icon.play("icon")
+	$Table.play("idle")
 
 
 func _process(delta: float) -> void:
@@ -18,6 +19,7 @@ func _on_body_entered(body: Node2D) -> void:
 		if GlobalVars.player_have_key == true:
 			GlobalVars.player_have_fuse = true
 			$Icon.hide()
+			$Table.play("opened")
 			GlobalSignal.emit_signal("text", "i got the fuse")
 			print(GlobalVars.player_have_fuse)
 		else:

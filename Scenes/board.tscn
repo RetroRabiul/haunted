@@ -1,13 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://v13oj4kukvm6"]
+[gd_scene load_steps=8 format=3 uid="uid://v13oj4kukvm6"]
 
 [ext_resource type="Script" path="res://Scripts/board.gd" id="1_gk10e"]
 [ext_resource type="Texture2D" uid="uid://0kkh05tat62w" path="res://Assets/bored.png" id="1_um360"]
+[ext_resource type="Texture2D" uid="uid://cyxd6qic1fhob" path="res://Assets/icon.png" id="3_tydo6"]
+[ext_resource type="Texture2D" uid="uid://do331hmcf558" path="res://Assets/icon4.png" id="4_a14ay"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r6uwe"]
 size = Vector2(90, 45)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_okwul"]
 size = Vector2(114, 86)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n73rh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_tydo6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_a14ay")
+}],
+"loop": true,
+"name": &"icon",
+"speed": 2.0
+}]
 
 [node name="board" type="StaticBody2D"]
 collision_layer = 8
@@ -27,6 +43,13 @@ shape = SubResource("RectangleShape2D_r6uwe")
 shape = SubResource("RectangleShape2D_okwul")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Icon" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -11)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_n73rh")
+animation = &"icon"
 
 [connection signal="body_entered" from="BoardArea2d" to="." method="_on_board_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

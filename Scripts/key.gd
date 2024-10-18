@@ -23,7 +23,9 @@ func _collision():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if time == 0:
+	if time == 3:
+		GlobalSignal.emit_signal("key", "I can use this to open things")
+	elif time == 0:
 		GlobalSignal.emit_signal("key", "")
 		queue_free()
 	print(time)

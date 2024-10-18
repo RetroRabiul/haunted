@@ -3,7 +3,8 @@ extends StaticBody2D
 var time = 5
 
 func _ready() -> void:
-	pass
+	$Icon.show()
+	$Icon.play("icon")
 
 func _process(delta: float) -> void:
 	if time == 0:
@@ -16,6 +17,7 @@ func _on_board_area_2d_body_entered(body: Node2D) -> void:
 		if GlobalVars.player_have_fuse == true :
 			GlobalSignal.emit_signal("text", "Electricity is Back")
 			GlobalSignal.emit_signal("have_electricity")
+			$Icon.hide()
 			print("Electricity is Back")
 			
 		elif GlobalVars.board_collision == true:
