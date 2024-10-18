@@ -1,14 +1,30 @@
-[gd_scene load_steps=6 format=3 uid="uid://ctai8ocvk248h"]
+[gd_scene load_steps=9 format=3 uid="uid://ctai8ocvk248h"]
 
 [ext_resource type="Script" path="res://Scripts/torch.gd" id="1_ipnsa"]
 [ext_resource type="Texture2D" uid="uid://cr1vilthh28ty" path="res://Assets/torch.png" id="2_j5lmp"]
 [ext_resource type="Texture2D" uid="uid://bwcfojbiyqvvt" path="res://Assets/light.png" id="3_yo8aj"]
+[ext_resource type="Texture2D" uid="uid://cyxd6qic1fhob" path="res://Assets/icon.png" id="4_8c13y"]
+[ext_resource type="Texture2D" uid="uid://do331hmcf558" path="res://Assets/icon4.png" id="5_rknbs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rw22w"]
 size = Vector2(20, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_is74j"]
 size = Vector2(21, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kcroq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_8c13y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_rknbs")
+}],
+"loop": true,
+"name": &"icon",
+"speed": 2.0
+}]
 
 [node name="StaticBody2D" type="StaticBody2D"]
 collision_layer = 8
@@ -32,5 +48,13 @@ blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
 texture = ExtResource("3_yo8aj")
+
+[node name="Icon" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -13)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_kcroq")
+animation = &"icon"
+frame_progress = 0.506733
 
 [connection signal="body_entered" from="Area2d" to="." method="_on_area_2d_body_entered"]

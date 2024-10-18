@@ -37,12 +37,13 @@ scale = Vector2(1.5, 1.5)
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_dguvf")
+speed = 100
 
 [node name="ZombieSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_185qc")
 animation = &"chasing"
-frame_progress = 0.948932
+frame_progress = 0.728673
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_igkng")

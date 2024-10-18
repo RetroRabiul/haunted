@@ -1,10 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://2ys55dxa6j08"]
+[gd_scene load_steps=7 format=3 uid="uid://2ys55dxa6j08"]
 
 [ext_resource type="Script" path="res://Scripts/key.gd" id="1_1ju32"]
 [ext_resource type="Texture2D" uid="uid://d6wr1t6cwx3c" path="res://Assets/key.png" id="1_me48b"]
+[ext_resource type="Texture2D" uid="uid://cyxd6qic1fhob" path="res://Assets/icon.png" id="3_d5fo4"]
+[ext_resource type="Texture2D" uid="uid://do331hmcf558" path="res://Assets/icon4.png" id="4_4orje"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nwete"]
 radius = 9.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3or3b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_d5fo4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4orje")
+}],
+"loop": true,
+"name": &"icon",
+"speed": 2.0
+}]
 
 [node name="Key" type="Area2D"]
 script = ExtResource("1_1ju32")
@@ -17,6 +33,13 @@ texture_filter = 1
 texture = ExtResource("1_me48b")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Icon" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -11)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_3or3b")
+animation = &"icon"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://bwsggdywhxqen"]
+[gd_scene load_steps=45 format=3 uid="uid://bwsggdywhxqen"]
 
 [ext_resource type="Texture2D" uid="uid://eixnv2pv16ut" path="res://Assets/floor.png" id="1_r1qq7"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_sqrbh"]
@@ -69,7 +69,7 @@ size = Vector2(192.5, 66.2503)
 size = Vector2(61.25, 106.25)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_dbrg8"]
-polygon = PackedVector2Array(512, 31, 480.769, 31, 481, 2, 411, 2, 411.285, 31, 375.643, 31, 374, 21, 265, 21, 264.379, 31, 153, 31, 155, 20, 37, 19, 39, 31, 32, 31, 32, 671, 480, 671, 480, 703, 32, 703, 32, 1247, 0, 1279, 0, -1, 1280, -1, 1280, 1279, 0, 1279, 32, 1247, 1248, 1247, 1248, 895, 1207.99, 895, 1208, 881, 958, 881, 957.865, 895, 936.865, 895, 937, 888, 877, 888, 877.125, 895, 865, 895, 851, 877, 820, 877, 820, 1001, 820, 1006, 832, 1006.12, 832, 1087, 800, 1087, 800, 863, 1248, 863, 1248, 703, 960, 703, 960, 607, 992, 607, 992, 671, 1248, 671, 1248, 581.108, 1240, 580, 1238, 535, 1248, 537.307, 1248, 479, 928, 479, 928, 447, 1248, 447, 1248, 31, 1241, 31, 1243, 20, 1125, 20, 1127, 31, 1033.89, 31, 1032, 21, 924, 21, 922.345, 31, 891.64, 31, 892, 1, 822, 1, 822.306, 31, 800, 31, 800, 479, 480, 479, 480, 543, 448, 543, 448, 447, 768, 447, 768, 204.892, 758, 203, 756, 159, 768, 161.109, 768, 31, 544, 31, 544, 287, 512, 287)
+polygon = PackedVector2Array(522, 18, 480.769, 18, 481, 2, 411, 2, 411.285, 19, 156, 20, 151, 12, 140, 12, 137, 17, 55, 17, 53, 12, 41, 12, 37, 19, 20, 19, 19, 684, 467, 684, 467, 693, 19, 693, 16, 1261, 0, 1279, 0, -1, 1280, -1, 1280, 1279, 0, 1279, 16, 1261, 1264, 1261, 1265, 881, 820, 881, 820, 1073, 810, 1073, 810, 873, 1265, 873, 1266, 692, 969, 692, 969, 618, 981, 618, 981, 680, 1265, 680, 1265, 468, 940, 468, 940, 458, 1265, 458, 1264, 20, 1243.06, 20, 1239, 12, 1227.34, 12, 1226, 17, 1142, 17, 1141, 12, 1129, 12, 1125, 20, 892, 19, 892, 1, 822, 1, 822, 18, 790, 18, 790, 468, 469, 468, 469, 534, 457, 534, 457, 456, 777, 456, 778, 18, 533, 18, 533, 278, 522, 278)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_pl5bf"]
 vertices = PackedVector2Array(776, 836.023, 776, 1147, 425.031, 969, 424.563, 809, 515.141, 773, 700, 269.883, 752, 260.867, 752, 389.172, 571.953, 348, 914, 521.031, 1216.33, 520.031, 1215.35, 535.227, 1183.09, 555.398, 1072.71, 591.297, 1008.59, 572, 1036.82, 616.727, 1228.38, 634, 1228.6, 639.867, 1083.11, 638.117, 1181.84, 634, 1083.57, 596.992, 819, 524, 819, 116.063, 1098, 117.93, 914, 413, 900.063, 1147, 899.063, 970, 1230.04, 970, 1230.96, 1217.99, 59, 1217, 1228.06, 737.93, 1228.66, 835.023, 925, 735.93, 508, 608.852, 508, 524, 519.313, 636.094, 330, 809, 330, 915, 169, 915, 169, 804, 73, 965, 135, 965, 135, 1045, 369, 1045, 369, 969, 176, 251, 176, 105, 483, 105, 483, 348, 420, 395.18, 717.852, 63, 749, 63, 749, 142.68, 716.852, 130, 700, 175.68, 572.953, 130, 1232.97, 253.922, 1232.65, 413, 1098, 252.93, 56.75, 632.078, 58.9375, 251, 420, 610.148, 925, 572, 59, 773, 73, 804)
@@ -87,6 +87,9 @@ size = Vector2(164, 22)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ng8ne"]
 size = Vector2(163, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ct0ph"]
+size = Vector2(28, 128)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_sqrbh")
@@ -256,6 +259,8 @@ occluder = SubResource("OccluderPolygon2D_dbrg8")
 navigation_polygon = SubResource("NavigationPolygon_pl5bf")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color(0.0415072, 0.0415072, 0.0415072, 1)
 
 [node name="kitchen" type="StaticBody2D" parent="."]
 
@@ -406,3 +411,17 @@ scale = Vector2(0.315, 0.315)
 [node name="Key" parent="." instance=ExtResource("28_k87d1")]
 position = Vector2(295, 722)
 rotation = 0.340339
+
+[node name="Icon" parent="Key" index="3"]
+position = Vector2(-3.00425, -8.48375)
+rotation = -0.340339
+
+[node name="ZombieCanFollow" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZombieCanFollow"]
+position = Vector2(464, 608)
+shape = SubResource("RectangleShape2D_ct0ph")
+
+[connection signal="body_entered" from="ZombieCanFollow" to="." method="_on_zombie_can_follow_body_entered"]
+
+[editable path="Key"]

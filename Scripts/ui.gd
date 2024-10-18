@@ -13,9 +13,12 @@ func _ready() -> void:
 
 func _got_key(text):
 	key_text.text = text
-	%Key.show()
+	if GlobalVars.player_have_key == true:
+		%Key.show()
 
 func _show_text(text):
+	if GlobalVars.player_have_fuse == true:
+		%Key.hide()
 	search_text.text = text
 	search_text.show()
 

@@ -4,7 +4,21 @@ var time = 5
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	$Key.hide()
+	$Icon.hide()
+	$KeyCollisionShape.disabled = true
+	GlobalSignal.show_key.connect(_show_key)
+
+
+func _show_key():
+	$Key.show()
+	$Icon.play("icon")
+	call_deferred("_collision")
+
+
+func _collision():
+	$KeyCollisionShape.disabled = false
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

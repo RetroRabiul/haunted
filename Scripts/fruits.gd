@@ -14,6 +14,11 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") and GlobalVars.player_drank_water == true:
 		$Apple.hide()
+		call_deferred("_collision")
 		GlobalVars.Player_ate_fruit = true
+		GlobalVars.board_collision = true
 		GlobalSignal.emit_signal("text","I need to Search for the Fuse box")
 	
+
+func _collision():
+	$CollisionShape2D.disabled = true
