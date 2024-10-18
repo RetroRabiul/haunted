@@ -17,5 +17,10 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		$GlassAnimatedSprite.play("empty")
 		$Icon.hide()
+		call_deferred("_collision")
 		GlobalVars.player_drank_water = true
 		GlobalSignal.emit_signal("text","I'm hungry, I need to eat something.")
+
+
+func _collision():
+	$Area2D/CollisionShape2D.disabled = true

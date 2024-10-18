@@ -9,7 +9,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if time == 0:
 		GlobalSignal.emit_signal("key", "")
-	print(time)
+		$Icon.stop()
+	
 
 
 func _on_board_area_2d_body_entered(body: Node2D) -> void:

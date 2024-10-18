@@ -1,0 +1,213 @@
+[gd_scene load_steps=15 format=3 uid="uid://dhfuidrt3nvdd"]
+
+[ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_is23m"]
+[ext_resource type="FontFile" uid="uid://k0lb3q5pibgv" path="res://Assets/fonts/Comfortaa/static/Comfortaa-Bold.ttf" id="1_ud5fh"]
+[ext_resource type="Texture2D" uid="uid://b1atjsvq46ilx" path="res://Assets/Enemy/zombie1.png" id="1_vbn1x"]
+[ext_resource type="FontFile" uid="uid://cx5qbw7hfglc7" path="res://Assets/fonts/Comfortaa/static/Comfortaa-SemiBold.ttf" id="4_6spnk"]
+
+[sub_resource type="Animation" id="Animation_26xyy"]
+resource_name = "SpriteAnim"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.5, -0.25, 0, 0.25, 0, 25, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.5, -0.25, 0, 0.25, 0, 25, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qi2vm"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Label:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.529067, 0.529067, 0.529067, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3lno3"]
+resource_name = "TextAnim"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.529067, 0.529067, 0.529067, 1), Color(1, 1, 1, 1), Color(0.529067, 0.529067, 0.529067, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8brs4"]
+_data = {
+"RESET": SubResource("Animation_qi2vm"),
+"SpriteAnim": SubResource("Animation_26xyy"),
+"TextAnim": SubResource("Animation_3lno3")
+}
+
+[sub_resource type="Gradient" id="Gradient_o4v14"]
+colors = PackedColorArray(0.521569, 0, 0, 0.392157, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bybs3"]
+gradient = SubResource("Gradient_o4v14")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n1pxj"]
+texture = SubResource("GradientTexture2D_bybs3")
+
+[sub_resource type="Gradient" id="Gradient_m56na"]
+colors = PackedColorArray(0, 0, 0, 1, 0.521569, 0, 0, 0.392157)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j4ms2"]
+gradient = SubResource("Gradient_m56na")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b0o0h"]
+texture = SubResource("GradientTexture2D_j4ms2")
+
+[node name="GameOver" type="Node2D"]
+script = ExtResource("1_is23m")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+texture_filter = 1
+position = Vector2(576, 650)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_vbn1x")
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(0.529067, 0.529067, 0.529067, 1)
+offset_left = 46.0
+offset_top = 419.0
+offset_right = 756.0
+offset_bottom = 599.0
+pivot_offset = Vector2(355, 90)
+theme_override_colors/font_color = Color(0.658911, 1.9132e-06, 5.29438e-07, 1)
+theme_override_fonts/font = ExtResource("1_ud5fh")
+theme_override_font_sizes/font_size = 75
+text = "You are a good 
+Zombie Breakfast"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8brs4")
+}
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8brs4")
+}
+
+[node name="Button" type="Button" parent="."]
+offset_left = 802.0
+offset_top = 442.0
+offset_right = 1152.0
+offset_bottom = 564.0
+theme_override_colors/font_hover_color = Color(0.730742, 9.50582e-07, 7.70092e-07, 1)
+theme_override_colors/font_pressed_color = Color(0.423185, 0, 1.92523e-07, 1)
+theme_override_colors/font_color = Color(0.923959, 4.86121e-06, 1.34766e-06, 1)
+theme_override_fonts/font = ExtResource("4_6spnk")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxTexture_n1pxj")
+theme_override_styles/normal = SubResource("StyleBoxTexture_b0o0h")
+text = "Play
+Again"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

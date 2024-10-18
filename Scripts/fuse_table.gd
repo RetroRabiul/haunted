@@ -10,7 +10,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if time == 0:
 		GlobalSignal.emit_signal("key", "")
-	print(time)
+	
 
 
 

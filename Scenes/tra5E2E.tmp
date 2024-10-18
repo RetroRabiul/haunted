@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://yghpllnnm6y5"]
+
+[ext_resource type="Script" path="res://Scripts/trap_door.gd" id="1_qic7o"]
+[ext_resource type="Texture2D" uid="uid://tuhgjyu6n5np" path="res://Assets/trap_door.png" id="1_r22ad"]
+[ext_resource type="Texture2D" uid="uid://wllihldcpc40" path="res://Assets/trap_door_opened.png" id="2_oi0h2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_203u3"]
+size = Vector2(81, 70)
+
+[node name="TrapDoor" type="Area2D"]
+collision_layer = 8
+collision_mask = 3
+script = ExtResource("1_qic7o")
+
+[node name="TrapDoor" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_r22ad")
+
+[node name="TrapDoorOpened" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(12, -27)
+texture = ExtResource("2_oi0h2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(12.5, 0)
+shape = SubResource("RectangleShape2D_203u3")
+disabled = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

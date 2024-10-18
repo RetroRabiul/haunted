@@ -20,7 +20,6 @@ func _collision():
 	$KeyCollisionShape.disabled = false
 
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if time == 3:
@@ -28,7 +27,7 @@ func _process(delta: float) -> void:
 	elif time == 0:
 		GlobalSignal.emit_signal("key", "")
 		queue_free()
-	print(time)
+	
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):

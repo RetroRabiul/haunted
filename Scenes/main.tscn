@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://bwsggdywhxqen"]
+[gd_scene load_steps=46 format=3 uid="uid://bwsggdywhxqen"]
 
 [ext_resource type="Texture2D" uid="uid://eixnv2pv16ut" path="res://Assets/floor.png" id="1_r1qq7"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_sqrbh"]
@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://deix43e6330w" path="res://Scenes/glass.tscn" id="26_3gykp"]
 [ext_resource type="PackedScene" uid="uid://b16bw8ohavvhx" path="res://Scenes/fruits.tscn" id="27_imsum"]
 [ext_resource type="PackedScene" uid="uid://2ys55dxa6j08" path="res://Scenes/key.tscn" id="28_k87d1"]
+[ext_resource type="PackedScene" uid="uid://yghpllnnm6y5" path="res://Scenes/trap_door.tscn" id="29_7v017"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x46y5"]
 texture = ExtResource("1_r1qq7")
@@ -62,11 +63,13 @@ radius = 25.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_6jvas"]
 radius = 31.7105
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qo88a"]
-size = Vector2(192.5, 66.2503)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3c663"]
+radius = 31.25
+height = 200.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2a85w"]
-size = Vector2(61.25, 106.25)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cei8b"]
+radius = 31.25
+height = 119.349
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_dbrg8"]
 polygon = PackedVector2Array(522, 18, 480.769, 18, 481, 2, 411, 2, 411.285, 19, 156, 20, 151, 12, 140, 12, 137, 17, 55, 17, 53, 12, 41, 12, 37, 19, 20, 19, 19, 684, 467, 684, 467, 693, 19, 693, 16.266, 1210.64, 13, 1211, 13, 1236, 16.1315, 1236.11, 16, 1261, 0, 1279, 0, -1, 1280, -1, 1280, 1279, 0, 1279, 16, 1261, 1264, 1261, 1265, 881, 820, 881, 820, 1073, 810, 1073, 810, 873, 1265, 873, 1266, 692, 969, 692, 969, 618, 981, 618, 981, 680, 1265, 680, 1265, 468, 940, 468, 940, 458, 1265, 458, 1264, 20, 1243.06, 20, 1239, 12, 1227.34, 12, 1226, 17, 1142, 17, 1141, 12, 1129, 12, 1125, 20, 892, 19, 892, 1, 822, 1, 822, 18, 790, 18, 790, 468, 469, 468, 469, 534, 457, 534, 457, 456, 777, 456, 778, 18, 533, 18, 533, 278, 522, 278)
@@ -82,11 +85,13 @@ size = Vector2(59.125, 131)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vrbch"]
 size = Vector2(336, 30)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4mugx"]
-size = Vector2(164, 22)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7k0s8"]
+radius = 12.0
+height = 164.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ng8ne"]
-size = Vector2(163, 34)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lpq0a"]
+radius = 14.0
+height = 162.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ct0ph"]
 size = Vector2(28, 128)
@@ -222,9 +227,10 @@ texture_filter = 1
 texture = ExtResource("5_1l0pw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="sofa"]
-position = Vector2(-1.24997, -0.624878)
+position = Vector2(-6.55651e-06, -3.37362e-05)
+rotation = 1.5708
 scale = Vector2(0.999998, 0.999998)
-shape = SubResource("RectangleShape2D_qo88a")
+shape = SubResource("CapsuleShape2D_3c663")
 
 [node name="Sofa2" type="Sprite2D" parent="sofa"]
 texture_filter = 1
@@ -233,10 +239,10 @@ rotation = -1.5708
 scale = Vector2(0.338542, 0.338542)
 texture = ExtResource("6_ckhkd")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="sofa"]
-position = Vector2(-168.125, 114.076)
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="sofa"]
+position = Vector2(-167.5, 116.25)
 scale = Vector2(0.999999, 0.999999)
-shape = SubResource("RectangleShape2D_2a85w")
+shape = SubResource("CapsuleShape2D_cei8b")
 
 [node name="Sofa3" type="Sprite2D" parent="sofa"]
 texture_filter = 1
@@ -246,9 +252,9 @@ scale = Vector2(0.338542, 0.338542)
 texture = ExtResource("6_ckhkd")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="sofa"]
-position = Vector2(166.25, 116.575)
+position = Vector2(165, 116.25)
 scale = Vector2(0.999999, 0.999999)
-shape = SubResource("RectangleShape2D_2a85w")
+shape = SubResource("CapsuleShape2D_cei8b")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 modulate = Color(0, 0, 0, 0)
@@ -259,8 +265,6 @@ occluder = SubResource("OccluderPolygon2D_dbrg8")
 navigation_polygon = SubResource("NavigationPolygon_pl5bf")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
-color = Color(0.0415072, 0.0415072, 0.0415072, 1)
 
 [node name="kitchen" type="StaticBody2D" parent="."]
 
@@ -348,11 +352,6 @@ shape = SubResource("RectangleShape2D_vrbch")
 [node name="Torch" parent="." instance=ExtResource("11_ltexq")]
 position = Vector2(183, 43)
 
-[node name="Enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_lnbp6")]
-position = Vector2(735, 87)
-speed = 30
-player = NodePath("../Player")
-
 [node name="DiningTable2" type="StaticBody2D" parent="."]
 position = Vector2(250, 885)
 scale = Vector2(0.5, 0.5)
@@ -364,7 +363,8 @@ texture = ExtResource("25_7q0yx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DiningTable2"]
 position = Vector2(0, -34)
-shape = SubResource("RectangleShape2D_4mugx")
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_7k0s8")
 
 [node name="DiningTable" type="StaticBody2D" parent="."]
 position = Vector2(1074, 1095)
@@ -374,8 +374,9 @@ texture_filter = 1
 texture = ExtResource("25_7q0yx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DiningTable"]
-position = Vector2(0.5, -28)
-shape = SubResource("RectangleShape2D_ng8ne")
+position = Vector2(0, -31)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_lpq0a")
 
 [node name="Fruits" parent="." instance=ExtResource("27_imsum")]
 position = Vector2(249, 881)
@@ -383,9 +384,16 @@ position = Vector2(249, 881)
 [node name="Glass" parent="." instance=ExtResource("26_3gykp")]
 position = Vector2(1072, 1060)
 
+[node name="TrapDoor" parent="." instance=ExtResource("29_7v017")]
+position = Vector2(1072, 786)
+
+[node name="Enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_lnbp6")]
+position = Vector2(735, 87)
+player = NodePath("../Player")
+
 [node name="Player" parent="." instance=ExtResource("3_8skpl")]
 position = Vector2(175, 135)
-speed = 200
+speed = 300
 
 [node name="Besin1" type="Sprite2D" parent="."]
 texture_filter = 1
