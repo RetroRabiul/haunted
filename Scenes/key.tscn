@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://2ys55dxa6j08"]
+[gd_scene load_steps=8 format=3 uid="uid://2ys55dxa6j08"]
 
 [ext_resource type="Script" path="res://Scripts/key.gd" id="1_1ju32"]
 [ext_resource type="Texture2D" uid="uid://d6wr1t6cwx3c" path="res://Assets/key.png" id="1_me48b"]
 [ext_resource type="Texture2D" uid="uid://cyxd6qic1fhob" path="res://Assets/icon.png" id="3_d5fo4"]
 [ext_resource type="Texture2D" uid="uid://do331hmcf558" path="res://Assets/icon4.png" id="4_4orje"]
+[ext_resource type="AudioStream" uid="uid://bibiyhfqp6tfe" path="res://Assets/Audios/collect.mp3" id="5_jdo6r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nwete"]
 radius = 9.0
@@ -40,6 +41,9 @@ position = Vector2(0, -11)
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_3or3b")
 animation = &"icon"
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_jdo6r")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

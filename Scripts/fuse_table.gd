@@ -17,11 +17,14 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		if GlobalVars.player_have_key == true:
+			$Audio.playing = true
+			await($Audio)
 			GlobalVars.player_have_key == false
 			GlobalVars.player_have_fuse = true
 			$Icon.hide()
 			$Table.play("opened")
 			GlobalSignal.emit_signal("text", "i got the fuse")
+			$CollisionShape2D.disabled = true
 			print(GlobalVars.player_have_fuse)
 		else:
 			GlobalSignal.emit_signal("key", "it's locked..i need a key")

@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://deix43e6330w"]
+[gd_scene load_steps=11 format=3 uid="uid://deix43e6330w"]
 
 [ext_resource type="Texture2D" uid="uid://lw450lk8vhfu" path="res://Assets/glass_empty.png" id="1_ww4sv"]
 [ext_resource type="Script" path="res://Scripts/glass.gd" id="1_y54di"]
 [ext_resource type="Texture2D" uid="uid://irj6sttf1530" path="res://Assets/glass.png" id="2_fp520"]
 [ext_resource type="Texture2D" uid="uid://cyxd6qic1fhob" path="res://Assets/icon.png" id="4_av81f"]
 [ext_resource type="Texture2D" uid="uid://do331hmcf558" path="res://Assets/icon4.png" id="5_gu8n2"]
+[ext_resource type="AudioStream" uid="uid://bibiyhfqp6tfe" path="res://Assets/Audios/collect.mp3" id="6_etmcj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2byj6"]
 animations = [{
@@ -68,5 +69,8 @@ position = Vector2(0, -19)
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_loyeu")
 animation = &"icon"
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_etmcj")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

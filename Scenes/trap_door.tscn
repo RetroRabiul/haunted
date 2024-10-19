@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://yghpllnnm6y5"]
+[gd_scene load_steps=9 format=3 uid="uid://yghpllnnm6y5"]
 
 [ext_resource type="Script" path="res://Scripts/trap_door.gd" id="1_qic7o"]
 [ext_resource type="Texture2D" uid="uid://tuhgjyu6n5np" path="res://Assets/trap_door.png" id="1_r22ad"]
 [ext_resource type="Texture2D" uid="uid://wllihldcpc40" path="res://Assets/trap_door_opened.png" id="2_oi0h2"]
 [ext_resource type="Texture2D" uid="uid://cyxd6qic1fhob" path="res://Assets/icon.png" id="4_0fpr4"]
 [ext_resource type="Texture2D" uid="uid://do331hmcf558" path="res://Assets/icon4.png" id="5_rdduw"]
+[ext_resource type="AudioStream" uid="uid://bibiyhfqp6tfe" path="res://Assets/Audios/collect.mp3" id="6_7j12s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_203u3"]
 size = Vector2(53, 70)
@@ -48,6 +49,9 @@ position = Vector2(74, -11)
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_vyr6m")
 animation = &"icon"
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_7j12s")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

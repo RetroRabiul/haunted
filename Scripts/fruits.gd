@@ -15,6 +15,8 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") and GlobalVars.player_drank_water == true:
+		$Audio.playing = true
+		await($Audio)
 		$Apple.hide()
 		$Icon.hide()
 		call_deferred("_collision")

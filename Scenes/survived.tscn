@@ -11,20 +11,20 @@
 [sub_resource type="Gradient" id="Gradient_1p86l"]
 colors = PackedColorArray(1, 1, 1, 0.392157, 0, 0, 0, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_bybs3"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sxokt"]
 gradient = SubResource("Gradient_1p86l")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_41e7g"]
-texture = SubResource("GradientTexture2D_bybs3")
+texture = SubResource("GradientTexture2D_sxokt")
 
 [sub_resource type="Gradient" id="Gradient_r0hiw"]
 colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0.392157)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_j4ms2"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hlqr7"]
 gradient = SubResource("Gradient_r0hiw")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r0wsd"]
-texture = SubResource("GradientTexture2D_j4ms2")
+texture = SubResource("GradientTexture2D_hlqr7")
 
 [node name="Survived" type="Node2D"]
 script = ExtResource("1_lvyeu")

@@ -23,9 +23,10 @@ func _on_board_area_2d_body_entered(body: Node2D) -> void:
 			GlobalVars.player_have_fuse == false
 			GlobalSignal.emit_signal("text", "Electricity is Back")
 			GlobalSignal.emit_signal("have_electricity")
+			$CollisionShape2D.disabled = true
 			$Icon.hide()
 			print("Electricity is Back")
-			
+			print(GlobalVars.player_have_fuse)
 		elif GlobalVars.board_collision == true:
 			GlobalSignal.emit_signal("show_key")
 			GlobalSignal.emit_signal("text", "I need to Search for a new fuse")

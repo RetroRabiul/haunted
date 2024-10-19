@@ -9,17 +9,17 @@
 [ext_resource type="AudioStream" uid="uid://cql0sltjyhnun" path="res://Assets/Audios/Event6.mp3" id="7_b5yyq"]
 [ext_resource type="AudioStream" uid="uid://b40gxxj4c8s8y" path="res://Assets/Audios/button.mp3" id="8_22cfe"]
 
-[sub_resource type="Gradient" id="Gradient_mqymr"]
-colors = PackedColorArray(0.521569, 0, 0, 0.392157, 0, 0, 0, 1)
+[sub_resource type="Gradient" id="Gradient_li1vq"]
+colors = PackedColorArray(0, 0, 0, 0, 1, 0, 0, 0.709804)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_aum6u"]
-gradient = SubResource("Gradient_mqymr")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_muqch"]
+gradient = SubResource("Gradient_li1vq")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d2eph"]
-texture = SubResource("GradientTexture2D_aum6u")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_63dcg"]
+texture = SubResource("GradientTexture2D_muqch")
 
 [sub_resource type="Gradient" id="Gradient_k2oyj"]
-colors = PackedColorArray(0, 0, 0, 1, 0.521569, 0, 0, 0.392157)
+colors = PackedColorArray(0, 0, 0, 1, 0.631035, 0.631035, 0.631035, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_7v71l"]
 gradient = SubResource("Gradient_k2oyj")
@@ -44,16 +44,16 @@ texture = ExtResource("2_0aoi3")
 
 [node name="PlayButton" type="Button" parent="."]
 texture_filter = 1
-offset_left = 827.0
+offset_left = 828.0
 offset_top = 427.0
-offset_right = 1150.0
+offset_right = 1151.0
 offset_bottom = 549.0
-theme_override_colors/font_hover_color = Color(0.730742, 9.50582e-07, 7.70092e-07, 1)
-theme_override_colors/font_pressed_color = Color(0.423185, 0, 1.92523e-07, 1)
-theme_override_colors/font_color = Color(0.923959, 4.86121e-06, 1.34766e-06, 1)
+theme_override_colors/font_hover_color = Color(0.77613, 3.49189e-05, 1.97336e-05, 1)
+theme_override_colors/font_pressed_color = Color(0.518098, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_1bmnq")
 theme_override_font_sizes/font_size = 95
-theme_override_styles/hover = SubResource("StyleBoxTexture_d2eph")
+theme_override_styles/hover = SubResource("StyleBoxTexture_63dcg")
 theme_override_styles/normal = SubResource("StyleBoxTexture_m2tx0")
 text = "Play"
 

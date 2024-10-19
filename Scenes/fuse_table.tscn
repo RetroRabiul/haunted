@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://pgp872c1ss2g"]
+[gd_scene load_steps=10 format=3 uid="uid://pgp872c1ss2g"]
 
 [ext_resource type="Texture2D" uid="uid://cty7nukjqhf5p" path="res://Assets/table.png" id="1_1kg6w"]
 [ext_resource type="Script" path="res://Scripts/fuse_table.gd" id="1_w7hvk"]
 [ext_resource type="Texture2D" uid="uid://bnnl3kuohxgd8" path="res://Assets/table_opened.png" id="3_cvl6q"]
 [ext_resource type="Texture2D" uid="uid://cyxd6qic1fhob" path="res://Assets/icon.png" id="3_noh35"]
 [ext_resource type="Texture2D" uid="uid://do331hmcf558" path="res://Assets/icon4.png" id="4_ms0uc"]
+[ext_resource type="AudioStream" uid="uid://bibiyhfqp6tfe" path="res://Assets/Audios/collect.mp3" id="6_joowr"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_twfy1"]
 animations = [{
@@ -62,6 +63,9 @@ position = Vector2(0, -20)
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_7r5lg")
 animation = &"icon"
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_joowr")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
