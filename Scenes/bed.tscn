@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvf0ya8o6kntk"]
+
+[ext_resource type="Texture2D" uid="uid://dg1vsiyswg617" path="res://Assets/bed2.png" id="1_efhfd"]
+[ext_resource type="Script" path="res://Scripts/bed.gd" id="1_wv0gg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jcy08"]
+size = Vector2(103, 133.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x3mqk"]
+size = Vector2(110, 143.333)
+
+[node name="bed" type="StaticBody2D"]
+scale = Vector2(1.2, 1.2)
+collision_layer = 8
+collision_mask = 3
+script = ExtResource("1_wv0gg")
+
+[node name="Bed" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_efhfd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5.5)
+shape = SubResource("RectangleShape2D_jcy08")
+
+[node name="SleepingArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SleepingArea"]
+position = Vector2(1.66667, -1.66666)
+shape = SubResource("RectangleShape2D_x3mqk")
+
+[connection signal="body_entered" from="SleepingArea" to="." method="_on_sleeping_area_body_entered"]

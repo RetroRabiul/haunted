@@ -1,6 +1,7 @@
 extends StaticBody2D
 
 var time = 5
+var trap_msg = 5
 
 func _ready() -> void:
 	$Icon.show()
@@ -10,12 +11,16 @@ func _process(delta: float) -> void:
 	if time == 0:
 		GlobalSignal.emit_signal("key", "")
 		$Icon.stop()
-	
+	if trap_msg == 0:
+		GlobalSignal.emit_signal("text", "I should trap the Zombie in the bashment")
+		$Icon.stop()
 
 
 func _on_board_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		if GlobalVars.player_have_fuse == true :
+			$TrapMsgTimer.start()
+			GlobalVars.player_have_fuse == false
 			GlobalSignal.emit_signal("text", "Electricity is Back")
 			GlobalSignal.emit_signal("have_electricity")
 			$Icon.hide()
@@ -34,3 +39,7 @@ func _on_board_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_timer_timeout() -> void:
 	time -= 1
+
+
+func _on_trap_msg_timer_timeout() -> void:
+	trap_msg -= 1

@@ -1,46 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://dhfuidrt3nvdd"]
+[gd_scene load_steps=17 format=3 uid="uid://dhfuidrt3nvdd"]
 
 [ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_is23m"]
 [ext_resource type="FontFile" uid="uid://k0lb3q5pibgv" path="res://Assets/fonts/Comfortaa/static/Comfortaa-Bold.ttf" id="1_ud5fh"]
 [ext_resource type="Texture2D" uid="uid://b1atjsvq46ilx" path="res://Assets/Enemy/zombie1.png" id="1_vbn1x"]
 [ext_resource type="FontFile" uid="uid://cx5qbw7hfglc7" path="res://Assets/fonts/Comfortaa/static/Comfortaa-SemiBold.ttf" id="4_6spnk"]
-
-[sub_resource type="Animation" id="Animation_26xyy"]
-resource_name = "SpriteAnim"
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:scale:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0.5, -0.25, 0, 0.25, 0, 25, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:scale:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0.5, -0.25, 0, 0.25, 0, 25, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1)
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
+[ext_resource type="AudioStream" uid="uid://cql0sltjyhnun" path="res://Assets/Audios/Event6.mp3" id="5_54i5d"]
+[ext_resource type="AudioStream" uid="uid://b40gxxj4c8s8y" path="res://Assets/Audios/button.mp3" id="6_7a3hn"]
 
 [sub_resource type="Animation" id="Animation_qi2vm"]
 length = 0.001
@@ -103,6 +68,43 @@ tracks/4/keys = {
 "values": [Color(0.529067, 0.529067, 0.529067, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_26xyy"]
+resource_name = "SpriteAnim"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.5, -0.25, 0, 0.25, 0, 25, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.5, -0.25, 0, 0.25, 0, 25, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_3lno3"]
 resource_name = "TextAnim"
 loop_mode = 1
@@ -141,20 +143,20 @@ _data = {
 [sub_resource type="Gradient" id="Gradient_o4v14"]
 colors = PackedColorArray(0.521569, 0, 0, 0.392157, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_bybs3"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1sqx3"]
 gradient = SubResource("Gradient_o4v14")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n1pxj"]
-texture = SubResource("GradientTexture2D_bybs3")
+texture = SubResource("GradientTexture2D_1sqx3")
 
 [sub_resource type="Gradient" id="Gradient_m56na"]
 colors = PackedColorArray(0, 0, 0, 1, 0.521569, 0, 0, 0.392157)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_j4ms2"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_u8q3e"]
 gradient = SubResource("Gradient_m56na")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b0o0h"]
-texture = SubResource("GradientTexture2D_j4ms2")
+texture = SubResource("GradientTexture2D_u8q3e")
 
 [node name="GameOver" type="Node2D"]
 script = ExtResource("1_is23m")
@@ -209,5 +211,16 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_n1pxj")
 theme_override_styles/normal = SubResource("StyleBoxTexture_b0o0h")
 text = "Play
 Again"
+
+[node name="BackgroundAudio" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(576, 324)
+stream = ExtResource("5_54i5d")
+autoplay = true
+max_distance = 1000.0
+
+[node name="ButtonAudio" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(576, 324)
+stream = ExtResource("6_7a3hn")
+max_distance = 13470.0
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

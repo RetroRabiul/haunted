@@ -6,7 +6,7 @@ func _ready() -> void:
 	_play_animations()
 	
 	
-	
+
 func _play_animations():
 	$AnimationPlayer.play("SpriteAnim")
 	call_deferred("_text_anim")
@@ -21,4 +21,15 @@ func _process(delta: float) -> void:
 
 
 func _on_button_pressed() -> void:
+	$ButtonAudio.playing = true
+	await($ButtonAudio)
+	call_deferred("_change_scene")
+	
+func _change_scene():
+	GlobalVars.player_drank_water = false
+	GlobalVars.player_have_fuse = false
+	GlobalVars.Player_ate_fruit = false
+	GlobalVars.player_have_key = false
+	GlobalVars.board_collision = false
+
 	get_tree().change_scene_to_file("res://Scenes/main.tscn")

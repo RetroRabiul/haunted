@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://vnl56fwywfjs"]
+[gd_scene load_steps=11 format=3 uid="uid://vnl56fwywfjs"]
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_dguvf"]
 [ext_resource type="Texture2D" uid="uid://b1atjsvq46ilx" path="res://Assets/Enemy/zombie1.png" id="2_v16vb"]
 [ext_resource type="Texture2D" uid="uid://ggroasr8m2v" path="res://Assets/Enemy/zombie2.png" id="3_7nb6p"]
 [ext_resource type="Texture2D" uid="uid://dq1klas6jepk5" path="res://Assets/Enemy/zombie3.png" id="4_3gslt"]
 [ext_resource type="Texture2D" uid="uid://djon71pga0g63" path="res://Assets/Enemy/zombie4.png" id="5_kbtn7"]
+[ext_resource type="AudioStream" uid="uid://bse732u4u30jq" path="res://Assets/Audios/Ghost 3.mp3" id="6_m8hac"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_185qc"]
 animations = [{
@@ -33,6 +34,9 @@ height = 53.3333
 radius = 12.6667
 height = 57.3333
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_bh5ui"]
+radius = 108.101
+
 [node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
 scale = Vector2(1.5, 1.5)
 collision_layer = 4
@@ -43,7 +47,6 @@ script = ExtResource("1_dguvf")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_185qc")
 animation = &"chasing"
-frame_progress = 0.728673
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_igkng")
@@ -60,5 +63,17 @@ debug_enabled = true
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
 
+[node name="AudioTimer" type="Timer" parent="."]
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_m8hac")
+
+[node name="AudioArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AudioArea"]
+shape = SubResource("CircleShape2D_bh5ui")
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="AudioTimer" to="." method="_on_audio_timer_timeout"]
+[connection signal="body_entered" from="AudioArea" to="." method="_on_audio_area_body_entered"]

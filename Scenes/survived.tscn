@@ -1,0 +1,93 @@
+[gd_scene load_steps=14 format=3 uid="uid://bdu6hrx8l0wwo"]
+
+[ext_resource type="Script" path="res://Scripts/survived.gd" id="1_lvyeu"]
+[ext_resource type="FontFile" uid="uid://cx5qbw7hfglc7" path="res://Assets/fonts/Comfortaa/static/Comfortaa-SemiBold.ttf" id="2_vbp7m"]
+[ext_resource type="Texture2D" uid="uid://dh6l4ban0nsnf" path="res://Assets/sleeping.png" id="3_71pkh"]
+[ext_resource type="Texture2D" uid="uid://bwcfojbiyqvvt" path="res://Assets/light.png" id="4_o2omt"]
+[ext_resource type="Texture2D" uid="uid://cr1vilthh28ty" path="res://Assets/torch.png" id="5_w5mnc"]
+[ext_resource type="AudioStream" uid="uid://cql0sltjyhnun" path="res://Assets/Audios/Event6.mp3" id="6_8mybl"]
+[ext_resource type="AudioStream" uid="uid://b40gxxj4c8s8y" path="res://Assets/Audios/button.mp3" id="7_joj3r"]
+
+[sub_resource type="Gradient" id="Gradient_1p86l"]
+colors = PackedColorArray(1, 1, 1, 0.392157, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bybs3"]
+gradient = SubResource("Gradient_1p86l")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_41e7g"]
+texture = SubResource("GradientTexture2D_bybs3")
+
+[sub_resource type="Gradient" id="Gradient_r0hiw"]
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0.392157)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j4ms2"]
+gradient = SubResource("Gradient_r0hiw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r0wsd"]
+texture = SubResource("GradientTexture2D_j4ms2")
+
+[node name="Survived" type="Node2D"]
+script = ExtResource("1_lvyeu")
+
+[node name="Sleeping" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(897, 611)
+scale = Vector2(2.62, 2.62)
+texture = ExtResource("3_71pkh")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.741385, 0.741385, 0.741385, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(503, 321)
+scale = Vector2(6.445, 6.445)
+blend_mode = 2
+range_item_cull_mask = 3
+shadow_enabled = true
+texture = ExtResource("4_o2omt")
+
+[node name="Torch" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(795, 148)
+scale = Vector2(5, 5)
+texture = ExtResource("5_w5mnc")
+
+[node name="MenuButton" type="Button" parent="."]
+texture_filter = 1
+offset_left = 800.0
+offset_top = 467.0
+offset_right = 1150.0
+offset_bottom = 589.0
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_vbp7m")
+theme_override_font_sizes/font_size = 95
+theme_override_styles/hover = SubResource("StyleBoxTexture_41e7g")
+theme_override_styles/normal = SubResource("StyleBoxTexture_r0wsd")
+text = "Menu"
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_left = 175.0
+offset_top = 61.0
+offset_right = 493.0
+offset_bottom = 107.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_vbp7m")
+theme_override_font_sizes/font_size = 40
+text = "Sweet Dreams..."
+
+[node name="BackgroundAudio" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(576, 324)
+stream = ExtResource("6_8mybl")
+autoplay = true
+max_distance = 1000.0
+
+[node name="ButtonAudio" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(576, 324)
+stream = ExtResource("7_joj3r")
+max_distance = 13470.0
+
+[connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]

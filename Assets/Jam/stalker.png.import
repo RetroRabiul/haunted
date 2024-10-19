@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdv57ha8qct8f"
-path="res://.godot/imported/all_original_edited_tiles-1.png-8.png-22ad15a428279aaa4eb67db1bb8f04c3.ctex"
+uid="uid://cf3bxnmawswno"
+path="res://.godot/imported/stalker.png-76f71589aa5aa021063c88007b51e734.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/all_original_edited_tiles-1.png-8.png"
-dest_files=["res://.godot/imported/all_original_edited_tiles-1.png-8.png-22ad15a428279aaa4eb67db1bb8f04c3.ctex"]
+source_file="res://Assets/Jam/stalker.png"
+dest_files=["res://.godot/imported/stalker.png-76f71589aa5aa021063c88007b51e734.ctex"]
 
 [params]
 

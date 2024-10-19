@@ -51,5 +51,8 @@ scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_n73rh")
 animation = &"icon"
 
+[node name="TrapMsgTimer" type="Timer" parent="."]
+
 [connection signal="body_entered" from="BoardArea2d" to="." method="_on_board_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="TrapMsgTimer" to="." method="_on_trap_msg_timer_timeout"]

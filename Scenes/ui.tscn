@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bx31j048qd1ex"]
+[gd_scene load_steps=6 format=3 uid="uid://bx31j048qd1ex"]
 
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="1_m54ei"]
 [ext_resource type="FontFile" uid="uid://cx5qbw7hfglc7" path="res://Assets/fonts/Comfortaa/static/Comfortaa-SemiBold.ttf" id="2_s2g3v"]
 [ext_resource type="FontFile" uid="uid://k0lb3q5pibgv" path="res://Assets/fonts/Comfortaa/static/Comfortaa-Bold.ttf" id="2_slu27"]
 [ext_resource type="Texture2D" uid="uid://d6wr1t6cwx3c" path="res://Assets/key.png" id="4_52bah"]
+[ext_resource type="Texture2D" uid="uid://bxv64r4pl7b0x" path="res://Assets/fuse.png" id="5_gppjm"]
 
 [node name="UI" type="Control"]
 light_mask = 512
@@ -54,7 +55,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("2_s2g3v")
 theme_override_font_sizes/font_size = 50
-text = "\"I need the torch to see\""
+text = "I need the torch to see"
 horizontal_alignment = 1
 
 [node name="key" type="Label" parent="."]
@@ -84,3 +85,10 @@ texture_filter = 1
 position = Vector2(1057, 33)
 scale = Vector2(5, 5)
 texture = ExtResource("4_52bah")
+
+[node name="Fuse" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture_filter = 1
+position = Vector2(983, 37)
+scale = Vector2(3, 3)
+texture = ExtResource("5_gppjm")

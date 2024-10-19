@@ -12,6 +12,7 @@ func _ready() -> void:
 
 func _show_key():
 	$Key.show()
+	$Icon.show()
 	$Icon.play("icon")
 	call_deferred("_collision")
 
@@ -33,6 +34,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		$Timer.start()
 		$Key.hide()
+		$Icon.hide()
 		GlobalVars.player_have_key = true
 		GlobalSignal.emit_signal("key", "Huh..Retro left his keys again..")
 		call_deferred("_hide_collision")

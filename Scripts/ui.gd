@@ -6,6 +6,7 @@ extends Control
 
 func _ready() -> void:
 	%Key.hide()
+	%Fuse.hide()
 	controls_text.show()
 	GlobalSignal.torch_collected.connect(_hide_controls_label)
 	GlobalSignal.text.connect(_show_text)
@@ -18,7 +19,10 @@ func _got_key(text):
 
 func _show_text(text):
 	if GlobalVars.player_have_fuse == true:
-		%Key.hide()
+		%Fuse.show()
+	if GlobalVars.player_have_fuse == false:
+		%Fuse.hide()
+		
 	search_text.text = text
 	search_text.show()
 

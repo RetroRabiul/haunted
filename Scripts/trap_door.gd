@@ -4,11 +4,14 @@ extends Area2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$TrapDoor.hide()
+	$Icon.hide()
 	$TrapDoorOpened.hide()
 	GlobalSignal.have_electricity.connect(_show_trap)
 
 func _show_trap():
 	$TrapDoor.show()
+	$Icon.show()
+	$Icon.play("icon")
 	call_deferred("_show_collision")
 	
 
@@ -26,7 +29,9 @@ func _on_body_entered(body: Node2D) -> void:
 		GlobalSignal.emit_signal("text", "I should move now")
 	if body.is_in_group("enemy"):
 		GlobalSignal.emit_signal("zombie_died")
+		
 
 func _on_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
+		$Icon.hide()
 		$TrapDoorOpened.show()
