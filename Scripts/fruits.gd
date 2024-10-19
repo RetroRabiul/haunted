@@ -19,11 +19,8 @@ func _on_body_entered(body: Node2D) -> void:
 		await($Audio)
 		$Apple.hide()
 		$Icon.hide()
-		call_deferred("_collision")
+		$CollisionShape2D.set_deferred("disabled", true)
 		GlobalVars.Player_ate_fruit = true
 		GlobalVars.board_collision = true
-		GlobalSignal.emit_signal("text","I need to Search for the Fuse box")
+		GlobalSignal.emit_signal("text","I need to search for the Fuse box")
 	
-
-func _collision():
-	$CollisionShape2D.disabled = true

@@ -23,11 +23,11 @@ func _on_body_entered(body: Node2D) -> void:
 			GlobalVars.player_have_fuse = true
 			$Icon.hide()
 			$Table.play("opened")
-			GlobalSignal.emit_signal("text", "i got the fuse")
-			$CollisionShape2D.disabled = true
+			GlobalSignal.emit_signal("text", "I got the fuse")
+			$CollisionShape2D.set_deferred("disabled", true)
 			print(GlobalVars.player_have_fuse)
 		else:
-			GlobalSignal.emit_signal("key", "it's locked..i need a key")
+			GlobalSignal.emit_signal("key", "It's locked..I need a key")
 			$Timer.start()
 	
 
