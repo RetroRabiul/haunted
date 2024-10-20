@@ -3,7 +3,6 @@ extends Area2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$TrapDoor.hide()
 	$Icon.hide()
 	$TrapDoorOpened.hide()
 	GlobalSignal.have_electricity.connect(_show_trap)

@@ -19,7 +19,7 @@ func _ready() -> void:
 func _zombie_died():
 	$Audio.playing = true
 	await($Audio)
-	GlobalSignal.emit_signal("text", "Now i should go back to bed..")
+	GlobalSignal.emit_signal("text", "Now I should go back to bed..")
 	#$DiedTimer.start()
 	queue_free()
 

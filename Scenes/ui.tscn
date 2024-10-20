@@ -54,7 +54,7 @@ offset_right = 404.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("2_s2g3v")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 40
 text = "I need the torch to see"
 horizontal_alignment = 1
 
@@ -75,7 +75,7 @@ offset_bottom = -100.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("2_s2g3v")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 40
 horizontal_alignment = 1
 
 [node name="Key" type="Sprite2D" parent="."]

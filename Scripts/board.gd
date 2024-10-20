@@ -12,7 +12,7 @@ func _process(delta: float) -> void:
 		GlobalSignal.emit_signal("key", "")
 		$Icon.stop()
 	if trap_msg == 0:
-		GlobalSignal.emit_signal("text", "I should trap the Zombie in the bashment")
+		GlobalSignal.emit_signal("text", "I should trap the Zombie in the basement")
 		$Icon.stop()
 
 

@@ -8,8 +8,8 @@ func _ready() -> void:
 
 
 func _have_electricity():
-	$CanvasModulate.visible = false
-	
+	#$CanvasModulate.visible = false
+	$CanvasModulate.color = Color("#747474")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
