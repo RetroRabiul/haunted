@@ -3,6 +3,10 @@ extends CharacterBody2D
 @export var speed = 100
 var direction := Vector2.ZERO
 
+var array = []
+var index = 0
+
+
 func _ready() -> void:
 	$PointLight2D.visible = false
 	GlobalSignal.have_electricity.connect(_have_electricity)
@@ -14,37 +18,74 @@ func _have_electricity():
 func _torch_collected() -> void:
 	$PointLight2D.show()
 
-
 func _process(delta: float) -> void:
 	#direction = Input.get_vector("left", "right", "up", "down")
 	#print(global_position)
-	direction.x = 0
-	direction.y = 0
+	#direction.x = 0
+	#direction.y = 0
+	direction = Vector2.ZERO
 	
-	if Input.is_action_pressed("up"):
+	if Input.is_action_just_pressed("up"):
+		array.append("up")
+		#index += 1
+		#if index > array.size() - 1:
+			#index = 0
+		
+	if Input.is_action_just_released("up"):
+		if "up" in array:
+			array.erase("up")
+		
+	if "up" in array:
 		direction.y = -1
 		$PlayerSprite.play("back")
+	
+	
+	if Input.is_action_just_pressed("down"):
+		array.append("down")
 		
-	elif Input.is_action_pressed("down"):
+	if Input.is_action_just_released("down"):
+		if "down" in array:
+			array.erase("down")
+		
+	if "down" in array:
 		direction.y = 1
 		$PlayerSprite.play("front")
 		
-	elif Input.is_action_pressed("left"):
-		direction.x = -1
-		$PlayerSprite.play("walking")
-		$PlayerSprite.flip_h = true
+	
+	if Input.is_action_just_pressed("left"):
+		array.append("left")
 		
-	elif Input.is_action_pressed("right"):
+	if Input.is_action_just_released("left"):
+		if "left" in array:
+			array.erase("left")
+		
+	if "left" in array:
+		direction.x = -1
+		$PlayerSprite.flip_h = true
+		$PlayerSprite.play("walking")
+		
+	
+	
+	if Input.is_action_just_pressed("right"):
+		array.append("right")
+		
+	if Input.is_action_just_released("right"):
+		if "right" in array:
+			array.erase("right")
+		
+	if array.has("right"):
 		direction.x = 1
 		$PlayerSprite.play("walking")
 		$PlayerSprite.flip_h = false
 		
-	else:
-		$PlayerSprite.play("idle")
 	
+	
+	#else:
+		#$PlayerSprite.play("idle")
+	print(array)
 	
 	velocity = direction * speed
-
+	velocity.normalized()
 #func _physics_process(delta: float) -> void:
 	#velocity = direction * speed
 	move_and_slide()
