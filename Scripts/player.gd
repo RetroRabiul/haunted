@@ -4,7 +4,6 @@ extends CharacterBody2D
 var direction := Vector2.ZERO
 
 var array = []
-var index = 0
 
 
 func _ready() -> void:
@@ -25,17 +24,21 @@ func _process(delta: float) -> void:
 	#direction.y = 0
 	direction = Vector2.ZERO
 	
+	#var last_direction = array[array.length - 1]
+	#var last_direction = array.size() - 1
+	var last_direction = array.size() - 1
+	
 	if Input.is_action_just_pressed("up"):
 		array.append("up")
 		#index += 1
 		#if index > array.size() - 1:
 			#index = 0
-		
+	
 	if Input.is_action_just_released("up"):
 		if "up" in array:
 			array.erase("up")
-		
-	if "up" in array:
+	
+	if "up" in ["Left", "right", "up", "down"]:
 		direction.y = -1
 		$PlayerSprite.play("back")
 	
@@ -47,7 +50,7 @@ func _process(delta: float) -> void:
 		if "down" in array:
 			array.erase("down")
 		
-	if "down" in array:
+	if "down" in ["Left", "right", "up", "down"]:
 		direction.y = 1
 		$PlayerSprite.play("front")
 		
@@ -59,7 +62,7 @@ func _process(delta: float) -> void:
 		if "left" in array:
 			array.erase("left")
 		
-	if "left" in array:
+	if "left" in ["Left", "right", "up", "down"]:
 		direction.x = -1
 		$PlayerSprite.flip_h = true
 		$PlayerSprite.play("walking")
@@ -73,7 +76,7 @@ func _process(delta: float) -> void:
 		if "right" in array:
 			array.erase("right")
 		
-	if array.has("right"):
+	if "right" in ["Left", "right", "up", "down"]:
 		direction.x = 1
 		$PlayerSprite.play("walking")
 		$PlayerSprite.flip_h = false
