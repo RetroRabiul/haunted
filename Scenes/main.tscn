@@ -386,6 +386,7 @@ player = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("3_8skpl")]
 position = Vector2(190, 135)
+speed = 100
 
 [node name="Besin1" type="Sprite2D" parent="."]
 texture_filter = 1

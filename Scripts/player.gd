@@ -4,7 +4,7 @@ extends CharacterBody2D
 var direction := Vector2.ZERO
 
 var array = []
-
+var move_in_this_direction
 
 func _ready() -> void:
 	$PointLight2D.visible = false
@@ -26,10 +26,15 @@ func _process(delta: float) -> void:
 	
 	#var last_direction = array[array.length - 1]
 	#var last_direction = array.size() - 1
-	var last_direction = array.size() - 1
+	#var last_direction = array.size() - 1
+	
+	
 	
 	if Input.is_action_just_pressed("up"):
 		array.append("up")
+		#if "up" in move_in_this_direction:
+			#direction.y = -1
+			#$PlayerSprite.play("back")
 		#index += 1
 		#if index > array.size() - 1:
 			#index = 0
@@ -38,55 +43,84 @@ func _process(delta: float) -> void:
 		if "up" in array:
 			array.erase("up")
 	
-	if "up" in ["Left", "right", "up", "down"]:
-		direction.y = -1
-		$PlayerSprite.play("back")
+	
 	
 	
 	if Input.is_action_just_pressed("down"):
 		array.append("down")
+		#if "down" in move_in_this_direction:
+			#direction.y = 1
+			#$PlayerSprite.play("front")
 		
 	if Input.is_action_just_released("down"):
 		if "down" in array:
 			array.erase("down")
 		
-	if "down" in ["Left", "right", "up", "down"]:
-		direction.y = 1
-		$PlayerSprite.play("front")
-		
+	
 	
 	if Input.is_action_just_pressed("left"):
 		array.append("left")
+		#if "left" in move_in_this_direction:
+			#direction.x = -1
+			#$PlayerSprite.flip_h = true
+			#$PlayerSprite.play("walking")
 		
 	if Input.is_action_just_released("left"):
 		if "left" in array:
 			array.erase("left")
 		
-	if "left" in ["Left", "right", "up", "down"]:
-		direction.x = -1
-		$PlayerSprite.flip_h = true
-		$PlayerSprite.play("walking")
+	
 		
 	
 	
 	if Input.is_action_just_pressed("right"):
 		array.append("right")
+		#if "right" in move_in_this_direction:
+			#direction.x = 1
+			#$PlayerSprite.play("walking")
+			#$PlayerSprite.flip_h = false
 		
 	if Input.is_action_just_released("right"):
 		if "right" in array:
 			array.erase("right")
 		
-	if "right" in ["Left", "right", "up", "down"]:
-		direction.x = 1
-		$PlayerSprite.play("walking")
-		$PlayerSprite.flip_h = false
-		
-	
 	
 	#else:
 		#$PlayerSprite.play("idle")
 	print(array)
 	
+	
+	if not array.is_empty():
+		var last_direction = array.size() - 1
+		move_in_this_direction = array[last_direction]
+		
+		print ("MOVE TO ", move_in_this_direction)
+	else:
+		move_in_this_direction = "stop"
+	
+	
+	if move_in_this_direction == "up":
+			direction.y = -1
+			$PlayerSprite.play("back")
+	
+	if move_in_this_direction == "down":
+			direction.y = 1
+			$PlayerSprite.play("front")
+	
+	if move_in_this_direction == "left":
+			direction.x = -1
+			$PlayerSprite.flip_h = true
+			$PlayerSprite.play("walking")
+	
+	if move_in_this_direction == "right":
+			direction.x = 1
+			$PlayerSprite.play("walking")
+			$PlayerSprite.flip_h = false
+	
+	if move_in_this_direction == "stop":
+		$PlayerSprite.play("idle")
+		
+		
 	velocity = direction * speed
 	velocity.normalized()
 #func _physics_process(delta: float) -> void:
