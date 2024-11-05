@@ -257,7 +257,7 @@ occluder = SubResource("OccluderPolygon2D_dbrg8")
 navigation_polygon = SubResource("NavigationPolygon_pl5bf")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.275091, 0.275091, 0.275091, 1)
+color = Color(0, 0, 0, 1)
 
 [node name="kitchen" type="StaticBody2D" parent="."]
 
@@ -386,7 +386,6 @@ player = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("3_8skpl")]
 position = Vector2(190, 135)
-speed = 100
 
 [node name="Besin1" type="Sprite2D" parent="."]
 texture_filter = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://vnl56fwywfjs"]
+[gd_scene load_steps=12 format=3 uid="uid://vnl56fwywfjs"]
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_dguvf"]
 [ext_resource type="Texture2D" uid="uid://b1atjsvq46ilx" path="res://Assets/Enemy/zombie1.png" id="2_v16vb"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dq1klas6jepk5" path="res://Assets/Enemy/zombie3.png" id="4_3gslt"]
 [ext_resource type="Texture2D" uid="uid://djon71pga0g63" path="res://Assets/Enemy/zombie4.png" id="5_kbtn7"]
 [ext_resource type="AudioStream" uid="uid://bse732u4u30jq" path="res://Assets/Audios/Ghost 3.mp3" id="6_m8hac"]
+[ext_resource type="Texture2D" uid="uid://cvlpud2uhy8me" path="res://Assets/red_light.png" id="7_kgvfx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_185qc"]
 animations = [{
@@ -48,10 +49,24 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_185qc")
 animation = &"chasing"
 
+[node name="PointLight2D" type="PointLight2D" parent="ZombieSprite"]
+position = Vector2(-4, -15.3333)
+scale = Vector2(0.02213, 0.02213)
+energy = 3.0
+texture = ExtResource("7_kgvfx")
+
+[node name="PointLight2D2" type="PointLight2D" parent="ZombieSprite"]
+position = Vector2(4, -15.3333)
+scale = Vector2(0.02213, 0.02213)
+energy = 3.0
+texture = ExtResource("7_kgvfx")
+
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CapsuleShape2D_igkng")
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CapsuleShape2D_8kxwp")
@@ -68,6 +83,7 @@ wait_time = 0.1
 stream = ExtResource("6_m8hac")
 
 [node name="AudioArea" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AudioArea"]
 shape = SubResource("CircleShape2D_bh5ui")

@@ -99,28 +99,51 @@ func _process(delta: float) -> void:
 		move_in_this_direction = "stop"
 	
 	
-	if move_in_this_direction == "up":
+	
+	match move_in_this_direction:
+		"up":
 			direction.y = -1
 			$PlayerSprite.play("back")
-	
-	if move_in_this_direction == "down":
+		"down":
 			direction.y = 1
 			$PlayerSprite.play("front")
-	
-	if move_in_this_direction == "left":
+		"left":
 			direction.x = -1
 			$PlayerSprite.flip_h = true
 			$PlayerSprite.play("walking")
-	
-	if move_in_this_direction == "right":
+		"right":
 			direction.x = 1
 			$PlayerSprite.play("walking")
 			$PlayerSprite.flip_h = false
+		"stop":
+			$PlayerSprite.play("idle")
 	
-	if move_in_this_direction == "stop":
-		$PlayerSprite.play("idle")
-		
-		
+	
+	
+	
+	#
+	#if move_in_this_direction == "up":
+			#direction.y = -1
+			#$PlayerSprite.play("back")
+	#
+	#if move_in_this_direction == "down":
+			#direction.y = 1
+			#$PlayerSprite.play("front")
+	#
+	#if move_in_this_direction == "left":
+			#direction.x = -1
+			#$PlayerSprite.flip_h = true
+			#$PlayerSprite.play("walking")
+	#
+	#if move_in_this_direction == "right":
+			#direction.x = 1
+			#$PlayerSprite.play("walking")
+			#$PlayerSprite.flip_h = false
+	#
+	#if move_in_this_direction == "stop":
+		#$PlayerSprite.play("idle")
+	#
+	
 	velocity = direction * speed
 	velocity.normalized()
 #func _physics_process(delta: float) -> void:
