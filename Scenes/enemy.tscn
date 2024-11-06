@@ -36,7 +36,7 @@ radius = 12.6667
 height = 57.3333
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bh5ui"]
-radius = 108.101
+radius = 115.341
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
 scale = Vector2(1.5, 1.5)
@@ -62,11 +62,9 @@ energy = 3.0
 texture = ExtResource("7_kgvfx")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CapsuleShape2D_igkng")
 
 [node name="Area2D" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CapsuleShape2D_8kxwp")
@@ -83,7 +81,6 @@ wait_time = 0.1
 stream = ExtResource("6_m8hac")
 
 [node name="AudioArea" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AudioArea"]
 shape = SubResource("CircleShape2D_bh5ui")

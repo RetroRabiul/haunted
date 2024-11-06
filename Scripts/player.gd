@@ -45,7 +45,6 @@ func _process(delta: float) -> void:
 	
 	
 	
-	
 	if Input.is_action_just_pressed("down"):
 		array.append("down")
 		#if "down" in move_in_this_direction:
@@ -68,8 +67,6 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_released("left"):
 		if "left" in array:
 			array.erase("left")
-		
-	
 		
 	
 	
@@ -99,7 +96,6 @@ func _process(delta: float) -> void:
 		move_in_this_direction = "stop"
 	
 	
-	
 	match move_in_this_direction:
 		"up":
 			direction.y = -1
@@ -119,9 +115,6 @@ func _process(delta: float) -> void:
 			$PlayerSprite.play("idle")
 	
 	
-	
-	
-	#
 	#if move_in_this_direction == "up":
 			#direction.y = -1
 			#$PlayerSprite.play("back")
